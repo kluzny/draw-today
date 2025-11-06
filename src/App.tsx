@@ -1,5 +1,4 @@
 import "./App.css";
-import LeftMenu from "./components/LeftMenu";
 import Nav from "./components/Nav";
 import Day from "./components/Day";
 
@@ -11,6 +10,7 @@ import { randomWordsN } from "./helpers/words";
 function App() {
   const today = startOfDay(new Date());
   const [currentDate, setCurrentDate] = useState<Date>(today);
+  const [selectedWord, setSelectedWord] = useState<string>("");
 
   const startOfCurrentDate = startOfDay(currentDate);
   const todaysWords = randomWordsN(5, +startOfCurrentDate);
@@ -27,6 +27,10 @@ function App() {
     });
   };
 
+  const selectWord = (word: string) => {
+    setSelectedWord(_currentWord => word)
+  }
+
   return (
     <>
       <div className="container mx-auto my-8 space-y-4">
@@ -36,8 +40,7 @@ function App() {
           decrement={decrementDate}
         ></Nav>
         <div className="flex space-x-4">
-          <LeftMenu></LeftMenu>
-          <Day todaysWords={todaysWords}></Day>
+          <Day todaysWords={todaysWords} selectedWord={selectedWord} selectWord={selectWord}></Day>
         </div>
       </div>
     </>
