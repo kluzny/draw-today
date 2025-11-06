@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>Draw Everyday</h1>
+        <h1 className="text-4xl text-center">Draw Everyday</h1>
       </div>
     </>
   );
