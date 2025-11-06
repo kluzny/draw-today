@@ -28,7 +28,13 @@ function App() {
   };
 
   const selectWord = (word: string) => {
-    setSelectedWord(_currentWord => word)
+    setSelectedWord(currentWord => {
+      if(word == currentWord) {
+        return ""
+      } else {
+        return word
+      }
+    })
   }
 
   return (
