@@ -6,11 +6,12 @@ import Day from "./components/Day";
 function App() {
   return (
     <>
-      <div className="container">
+      <div className="container mx-auto my-8 space-y-4">
         <Nav></Nav>
-        <LeftMenu></LeftMenu>
-        <Day></Day>
-        <h1 className="text-4xl text-center">Draw Today</h1>
+        <div className="flex space-x-4">
+          <LeftMenu></LeftMenu>
+          <Day></Day>
+        </div>
       </div>
     </>
   );

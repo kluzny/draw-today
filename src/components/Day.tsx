@@ -1,3 +1,3 @@
 export default function Day() {
-  return <div className="bg-green-500">Day</div>;
+  return <div className="grow rounded bg-green-500">Day</div>;
 }
