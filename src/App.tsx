@@ -4,10 +4,14 @@ import Nav from "./components/Nav";
 import Day from "./components/Day";
 
 import { add } from "date-fns";
-
 import { useState } from "react";
 
+import { randomWord, randomWordsN } from "./helpers/words";
+
 function App() {
+  console.log({ word: randomWord() });
+  console.log({ words: randomWordsN(5) });
+
   const today = new Date();
   const [currentDate, setCurrentDate] = useState<Date>(today);
 
