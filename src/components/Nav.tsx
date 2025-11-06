@@ -1,9 +1,10 @@
 import { isSameDay, format } from "date-fns";
+import type { MouseEventHandler } from "react";
 
 interface NavOptions {
   currentDate: Date;
-  increment: CallableFunction;
-  decrement: CallableFunction;
+  increment: MouseEventHandler<HTMLButtonElement>;
+  decrement: MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function Nav({ currentDate, increment, decrement }: NavOptions) {

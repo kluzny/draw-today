@@ -3,17 +3,17 @@ import LeftMenu from "./components/LeftMenu";
 import Nav from "./components/Nav";
 import Day from "./components/Day";
 
-import { add } from "date-fns";
+import { add, startOfDay } from "date-fns";
 import { useState } from "react";
 
-import { randomWord, randomWordsN } from "./helpers/words";
+import { randomWordsN } from "./helpers/words";
 
 function App() {
-  console.log({ word: randomWord() });
-  console.log({ words: randomWordsN(5) });
-
-  const today = new Date();
+  const today = startOfDay(new Date());
   const [currentDate, setCurrentDate] = useState<Date>(today);
+
+  const startOfCurrentDate = startOfDay(currentDate);
+  const todaysWords = randomWordsN(5, +startOfCurrentDate);
 
   const decrementDate = () => {
     setCurrentDate((current) => {
@@ -37,7 +37,7 @@ function App() {
         ></Nav>
         <div className="flex space-x-4">
           <LeftMenu></LeftMenu>
-          <Day></Day>
+          <Day todaysWords={todaysWords}></Day>
         </div>
       </div>
     </>
