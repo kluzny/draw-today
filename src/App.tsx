@@ -7,6 +7,8 @@ import { useState } from "react";
 
 import { randomWordsN } from "./helpers/words";
 
+import { useDay } from "./stores/DayStore";
+
 function App() {
   const today = startOfDay(new Date());
   const [currentDate, setCurrentDate] = useState<Date>(today);
@@ -28,14 +30,14 @@ function App() {
   };
 
   const selectWord = (word: string) => {
-    setSelectedWord(currentWord => {
-      if(word == currentWord) {
-        return ""
+    setSelectedWord((currentWord) => {
+      if (word == currentWord) {
+        return "";
       } else {
-        return word
+        return word;
       }
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -46,7 +48,11 @@ function App() {
           decrement={decrementDate}
         ></Nav>
         <div className="flex space-x-4">
-          <Day todaysWords={todaysWords} selectedWord={selectedWord} selectWord={selectWord}></Day>
+          <Day
+            todaysWords={todaysWords}
+            selectedWord={selectedWord}
+            selectWord={selectWord}
+          ></Day>
         </div>
       </div>
     </>
